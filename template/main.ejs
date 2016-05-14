@@ -4,27 +4,41 @@
     <meta charset="UTF-8">
     <title>目標決める君</title>
     <style>
-        h1,h2{
-            text-align:center;
-        }
-        .cell:nth-child(3n){
-            clear:both;
-        }
-        .cell{
-            width:30%;
-            height:30%;
-        }
-        form{
-            width:600px;
-            height:600px;
-            margin:0 auto;
-            text-align:center;
-        }
-        #decision{
-            width:200px;
-            height:100px;
-            margin-top:20px;
-        }
+        body{
+    padding: 0;
+    margin: 0;
+}
+h1,h2{
+    text-align:center;
+}
+#table{
+    width:600px;
+    height:600px;
+    margin:0 auto;
+    text-align:center;
+    margin-top:200px;
+    margin-bottom:200px;
+}
+.cell{
+    width:30%;
+    height:30%;
+}
+form{
+    width:600px;
+    height:600px;
+    margin:0 auto;
+    text-align:center;
+}
+#decision{
+    width:200px;
+    height:100px;
+    margin-top:20px;
+}
+li{
+    list-style:none;
+    border: 1px solid #000;
+    float:left;
+}
     </style>
 </head>
 <body>
@@ -42,5 +56,19 @@
     <input type="text" name="under_left" class="cell">
     <button type="submit" id="decision">決断！！</button>
     </form>
+    
+    <% goallists.forEach(function(goal){ %>
+    <ul id="table">
+        <li class="cell"><%=goal.top_right %> </li>
+        <li class="cell"><%=goal.top_straight %></li>
+        <li class="cell"><%=goal.top_left %></li>
+        <li class="cell"><%=goal.middle_right %></li>
+        <li class="cell"><%=goal.middle_straight %></li>
+        <li class="cell"><%=goal.middle_left %></li>
+        <li class="cell"><%=goal.under_right %></li>
+        <li class="cell"><%=goal.under_straight %></li>
+        <li class="cell"><%=goal.under_left %></li>
+    </ul>
+    <% }) %>
 </body>
 </html>

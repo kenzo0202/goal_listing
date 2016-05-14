@@ -1,0 +1,34 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+h1,h2{
+    text-align:center;
+}
+#table{
+    width:600px;
+    height:600px;
+    margin:0 auto;
+    text-align:center;
+}
+.cell:nth-child(3n){
+    clear:both;
+}
+.cell{
+    width:30%;
+    height:30%;
+}
+form{
+    width:600px;
+    height:600px;
+    margin:0 auto;
+    text-align:center;
+}
+#decision{
+    width:200px;
+    height:100px;
+    margin-top:20px;
+}
+li{
+    text-decoration:none;
+}
