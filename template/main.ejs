@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>目標決める君</title>
+    <style>
+        h1,h2{
+            text-align:center;
+        }
+        .cell:nth-child(3n){
+            clear:both;
+        }
+        .cell{
+            width:30%;
+            height:30%;
+        }
+        form{
+            width:600px;
+            height:600px;
+            margin:0 auto;
+            text-align:center;
+        }
+        #decision{
+            width:200px;
+            height:100px;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>目標決める君</h1>
+    <h2>ようこそ<%= name %>さん</h2>
+    <form action="/main" method="post">
+    <input type="text" name="top_right" class="cell">
+    <input type="text" name="top_straight" class="cell">
+    <input type="text" name="top_left" class="cell">    
+    <input type="text" name="middle_right" class="cell">
+    <input type="text" name="middle_straight" class="cell">
+    <input type="text" name="middle_left" class="cell">    
+    <input type="text" name="under_right" class="cell">
+    <input type="text" name="under_straight" class="cell">
+    <input type="text" name="under_left" class="cell">
+    <button type="submit" id="decision">決断！！</button>
+    </form>
+</body>
+</html>
