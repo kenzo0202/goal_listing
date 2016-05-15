@@ -12,8 +12,6 @@ var main_filename = __dirname + "/template/main.ejs";
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-
 //データベース設定
 var mongodb = require("mongodb");
 var mongoose = require('mongoose');
