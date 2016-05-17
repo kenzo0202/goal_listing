@@ -1,7 +1,3 @@
-body{
-    padding: 0;
-    margin: 0;
-}
 h1,h2{
     text-align:center;
 }
@@ -10,9 +6,8 @@ h1,h2{
     height:600px;
     margin:0 auto;
     text-align:center;
-}
-.cell:nth-child(3n){
-    clear:both;
+    margin-top:200px;
+    margin-bottom:200px;
 }
 .cell{
     width:30%;
@@ -30,5 +25,7 @@ form{
     margin-top:20px;
 }
 li{
-    text-decoration:none;
+    list-style:none;
+    border: 1px solid #000;
+    float:left;
 }
