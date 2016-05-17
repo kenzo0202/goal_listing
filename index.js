@@ -2,16 +2,19 @@ var ejs = require("ejs");
 var fs = require("fs");
 var express = require("express");
 var bodyParser = require("body-parser");
+var method_override = require("method-override");
 var app = express();
 //viewレンダリングエンジンをejsに設定
 app.set('view engine', 'ejs');
+app.use( method_override('_method') );
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 //ファイルへのパス
 var index_filename = __dirname + "/template/index.ejs";
 var main_filename = __dirname + "/template/main.ejs";
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+
 //データベース設定
 var mongodb = require("mongodb");
 var mongoose = require('mongoose');
@@ -87,7 +90,7 @@ app.post("/", function (req, res) {
     })
 });
 
-app.post("/main" ,function(req,res){
+app.post("/goals" ,function(req,res){
     var goal = new Goal({
         top_right:req.body.top_right,
         top_straight:req.body.top_straight,
@@ -106,10 +109,10 @@ app.post("/main" ,function(req,res){
             console.log("保存できました！")
         }
     });
-    res.redirect("/main")
+    res.redirect("/goals")
 })
 
-app.get("/main",function(req,res){
+app.get("/goals",function(req,res){
     goallists =[];
     Goal.find({},function(err,goals){
         if(err) throw err
@@ -121,7 +124,14 @@ app.get("/main",function(req,res){
             goallists:goallists
     });
     })
-})
+});
+
+app.delete("/goals/:id",function(req,res){
+    Goal.findById(req.params.id,function(err,goal){
+        goal.remove();
+    });
+    res.redirect("/goals")
+});
 
 app.listen(3000, function () {
     console.log("接続完了！");
